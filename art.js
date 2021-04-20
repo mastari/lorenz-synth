@@ -94,8 +94,21 @@ function mouseClicked() {
 //   playing = false;
 // }
 
+let scale = 10;
 
 function initConditions() {
+  if (windowWidth < 600) {
+    scale = 3;
+  }
+
+  if (windowWidth < 1000) {
+    scale = 5;
+  }
+
+  if (windowWidth < 1500) {
+    scale = 6;
+  }
+
 
   points = []
   time = 0;
@@ -172,7 +185,6 @@ function bound(z) {
   return map(z, 0, windowWidth, 1, 11)
 }
 
-let scale = 10;
 
 
 let a = 10;
@@ -180,6 +192,7 @@ let b = 28;
 let c = 8 / 3;
 
 function draw() {
+
 
   if (!firstClick) {
     let rate = constrain(map(x * y * z, 0, 8000, 0.8, 2), 0.8, 2)
