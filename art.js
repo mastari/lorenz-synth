@@ -97,16 +97,16 @@ function mouseClicked() {
 let scale = 10;
 
 function initConditions() {
-  if (windowWidth < 600) {
-    scale = 3;
+  if (windowWidth < 1500) {
+    scale = 6;
   }
+
 
   if (windowWidth < 1000) {
     scale = 5;
   }
-
-  if (windowWidth < 1500) {
-    scale = 6;
+  if (windowWidth < 600) {
+    scale = 3;
   }
 
 
