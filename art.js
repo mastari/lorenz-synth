@@ -181,38 +181,50 @@ let c = 8 / 3;
 
 function draw() {
 
+  if (!firstClick) {
+    let rate = constrain(map(x * y * z, 0, 8000, 0.8, 2), 0.8, 2)
+
+    if (!isNaN(rate)) {
+      console.log(rate)
+
+      song.rate(rate);
+    } else {
+      song.rate(3);
+    }
+
+    if (mX != mouseX || mY != mouseY) {
+      mX = mouseX;
+      mY = mouseY;
+      initConditions()
+
+
+      a = bound(mX)
+      b = 30;
+      c = bound(mY) / bound(mX)
+
+      // a = 10;
+      // b = 28;
+      // c = 8 / 3;
+
+
+
+      for (let i = 0; i < evo; i++) {
+        attract(a, b, c, true)
+      }
+    } else {
+      attract(a, b, c, false)
+    }
+
+    display()
+
+  }
+
   // points = []
 
   // for (let i = 0; i < time * 20; i++) {
   //   attract(a, b, c)
   // 
 
-  song.rate(map(x * y * z, 0, 8000, 0.8, 2));
-
-  if (mX != mouseX || mY != mouseY) {
-    mX = mouseX;
-    mY = mouseY;
-    initConditions()
-
-
-    a = bound(mX)
-    b = 30;
-    c = bound(mY) / bound(mX)
-
-    // a = 10;
-    // b = 28;
-    // c = 8 / 3;
-
-
-
-    for (let i = 0; i < evo; i++) {
-      attract(a, b, c, true)
-    }
-  } else {
-    attract(a, b, c, false)
-  }
-
-  display()
 
 
 }
